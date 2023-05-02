@@ -8,7 +8,7 @@ public class App {
     public static void main(String[] args) {
 
         //Creem l'array d'estudiants:
-        Student students[] = init();
+        Student students[] = initTui();
         //TODO Heu de canviar la crida a init() per la crida a initTui()
         //Student [] students = ... //TODO
 
@@ -47,30 +47,44 @@ public class App {
 
         //Ara, hem de preguntar quants estudiants volem tenir
         //Scanner in = ...
+        //TODO
+        Scanner inob = new Scanner(System.in);
 
         System.out.print("Number of students: ");
-        //TODO
+        int numberOfStudents = inob.nextInt();
 
-        //System.out.println("Number of students is: " + //TODO );
+
+
+        System.out.println("Number of students is: " + numberOfStudents );
 
         //int numberOfStudents = stringToInt(numberOfStudentsStr);
 
         //Si el número d'estudiants és més gran que 0
         //preguntarem el nom, edat i subjects de cada estudiant
-        //if(numberOfStudents > 0) {
 
-//            students = new Student[numberOfStudents];
-//            Student newStudent;
 
-//            for(int i = 0; i < numberOfStudents; i++){
+            students = new Student[numberOfStudents];
 
-              //TODO - Anar preguntant els valors (name, age,...) per a cada estudiant
+
+            for(int i = 0; i < numberOfStudents; i++) {
+                Student newStudent = new Student();
+                //TODO - Anar preguntant els valors (name, age,...) per a cada estudiant
+                System.out.print("Name: ");
+                newStudent.name = inob.next();
+                System.out.println("--------Student number: " + (i + 1) + "--------");
+
+                System.out.print("Edad: ");
+                newStudent.age = inob.nextInt();
+
+                System.out.print("Num de assignaturas: ");
+                newStudent.amountOfEnrolledSubjects = inob.nextInt();
+
 
                 //Fiquem l'estudiant a l'array
-                //students[i] = newStudent;
-            //}
-        //}
-        //in.close();
+                students[i] = newStudent;
+            }
+
+    //    inob.close();
         return students;
     }
 
